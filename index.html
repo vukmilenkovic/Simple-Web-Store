@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>JD Games and Animations</title>
+</head>
+<body>
+  <!-- TO DO -->
+  <!-- Insted of a cart page use a sliding sidebar, implement it using vue.js -->
+  <!-- Add a cart icon at the far right of the navigation bar,
+       when a user clicks on the icon, the sidebar should apear,
+       reveiling the shopping cart items
+  -->
+
+   <div id="app">
+      <!-- Top corner ballons-->
+    <div class="ballon one"></div>
+    <div class="ballon two"></div>
+    <div class="ballon three"></div>
+    <div class="ballon four"></div>
+    <div class="ballon five"></div>
+    <div class="ballon six"></div>
+
+
+    <!-- Sidebar cart-->
+    
+    <!-- Navbar -->
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a class="interactive-games" href="ogrodje3x3_termin4/Tic Tac Toe - BlajckJack.html">Games</a>
+        <a @click="toggleSideBar" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="about.html">About Us</a>
+    </div>
+
+   
+    <h1>CHOOSE FROM A RANGE OF AMAZING AND LICENCED ANIMATORS</h1>
+  <!-- First section, contains the card elements that will display the inventory of animators -->
+    <div id="first-section">
+        
+      <div class="card" id="card-one" >
+          <img src="Pictures/OIP (1).jpg" alt="Spiderman" style="width:100%">
+          <div class="container" >
+            <h4><b>The Real Spiderman</b></h4>
+            <p>20$</p>
+            <button class="card-button" type="submit" @click="animatorClickTraker"><h5>SELECT ME</h5></button>
+          </div>
+        </div>
+        <div class="card" id="card-two" >
+          <img src="Pictures/clown1.jpg" alt="Clown" style="width:100%">
+          <div class="container" >
+            <h4><b>Clown in every sense</b></h4>
+            <p>20$</p>
+            <button class="card-button" type="submit" @click="animatorClickTraker"><h5>SELECT ME</h5></button>
+          </div>
+        </div>
+        <div class="card" id="card-three"  >
+          <img src="Pictures/iron-man31.png" alt="Ironman" style="width:100%">
+          <div class="container">
+            <h4><b>Iron Man's twin brother</b></h4>
+            <p>20$</p>
+            <button class="card-button" type="submit" @click="animatorClickTraker"><h5>SELECT ME</h5></button>
+          </div>
+        </div>
+    </div>
+  <!-- Text area that is used to describe the different animators -->
+  <div class="text-area">
+      <p>Take the adventure of a lifetime right to your kids,The Amazing Spider Mans long lost brother with his acbrobatics, webs and spidy scences, this will be an adventure that you and your kids wont forget!</p>
+      <p>If you are looking for an animator for toddlers look no further, this guy is such a clown that even the presence of children makes his ballons pop, for an unforgetable experience, you get this clown! </p>
+      <p>Our last but not least animator is mister Iron Man, you just know the kids will go crazy at the sight of his suite and his capabillites. If Marvel asks his name is the Steel Man.</p>
+  </div>
+  <hr>
+  <h1>CHOOSE FROM A VARIETY OF GAMES OR THEME PARTIES</h1>
+<!-- Games Section, contains all the games and theme parties in the inventory -->
+<div id="games-section">
+  <div class="game" id="game-one" >
+      <img src="Pictures/Monopoly.jpeg" alt="Monopoly" style="width:100%">
+      <div class="container">
+        <h4><b>Monopoly</b></h4>
+        <p>10$/h</p>
+        <button class="game-button" @click="gameClickTracer('games')">Choose this game</button>
+        <h5>For how many hours?</h5>
+        <input type="number" v-model.number="inventory.monopoly"/>
+        <button class="hours-button" @click="addToCart('monopoly')"><h5>Add to cart</h5></button>
+      </div> 
+    </div>
+    <div class="game" id="game-two">
+      <img src="Pictures/Jenga.jpeg" alt="Jenga" style="width:100%">
+      <div class="container">
+        <h4><b>Jenga</b></h4>
+        <p>10$/h</p>
+        <button class="game-button" @click="gameClickTracer">Choose this game</button>
+        <h5>For how many hours?</h5>
+        <input type="number" v-model.number="inventory.jenga" />
+        <button class="hours-button" @click="addToCart('jenga')"><h5>Add to cart</h5></button>
+      </div>
+    </div>
+    <div class="game" id="game-three" >
+      <img src="Pictures/spiderman-party.jpg" alt="Chess" style="width:100%">
+      <div class="container">
+        <h4><b>Spider Man Party</b></h4>
+        <p>10$/h</p>
+        <button class="game-button" @click="gameClickTracer">Choose this game</button>
+        <h5>For how many hours?</h5>
+        <input type="number" v-model.number="inventory.spiderManParty"/>
+        <button class="hours-button" @click="addToCart('spiderManParty')"><h5>Add to cart</h5></button>
+      </div>
+    </div>
+    <div class="game" id="game-four"  >
+      <img src="Pictures/clown2.jpg" alt="Badminton" style="width:100%">
+      <div class="container">
+        <h4><b>Clown Party</b></h4>
+        <p>10$/h</p>
+        <button class="game-button" @click="gameClickTracer">Choose this game</button>
+        <h5>For how many hours?</h5>
+        <input type="number" v-model.number="inventory.clownParty" />
+        <button class="hours-button" @click="addToCart('clownParty')"><h5>Add to cart</h5></button>
+      </div>
+    </div>
+    <div class="game" id="game-five">
+      <img src="Pictures/ironman-party.jpg" alt="Monopoly" style="width:100%">
+      <div class="container">
+        <h4><b>Iron Man Party</b></h4>
+        <p>10$/h</p>
+        <button class="game-button" @click="gameClickTracer">Choose this game</button>
+        <h5>For how many hours?</h5>
+        <input type="number" v-model.number="inventory.ironManParty" />
+        <button class="hours-button" @click="addToCart('ironManParty')"><h5>Add to cart</h5></button>
+      </div>
+    </div>
+</div>
+
+<hr>
+<!-- Footer, contains text about the company and links to their socials -->
+<div id="footer">
+  <p>John Doe Limited was established in 2016. Our goal is to bring happines and joy to kids all over your city, we strive to give the kids a wonderful experience that they will remember for a long time.Check us out and be a part of the John Doe family like hundresds of families before.
+  </p>
+  <div class="footer-icons">
+    <ul><h3>You can find us here:</h3>
+      <li><i class="fa-brands fa-instagram"></i>  <a href="">Instagram</a></li>
+      <li><i class="fa-brands fa-facebook"></i>  <a href="">Facebook</a></li>
+      <li><i class="fa-brands fa-twitter"></i>  <a href="">Twitter</a></li>
+      <li><i class="fa-solid fa-envelope"></i>  <a href="">Email</a></li>
+    </ul>
+  </div>
+  
+
+</div>
+<!-- vue.js element -->
+<sidebar
+ v-if="showSidebar"
+ :toggle="toggleSideBar"
+ :cart="cart"
+ />
+
+    </div>
+  </div>
+   </div>
+    
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- vue.js code-->
+  <script>
+    let app = Vue.createApp({
+    data: function(){
+      return {
+          showSidebar: false,
+          inventory: {
+            animator: 0,
+            monopoly: 0,
+            jenga: 0,
+            spiderManParty: 0,
+            ironManParty: 0,
+            clownParty: 0,
+            animatorPrice: 0,
+            hours: 0,
+            games: 0
+          
+          },
+          cart: {
+            animator: 0,
+            hours: 0,
+            animatorPrice: 0,
+            gamesPrice: 0,
+            jenga: 0,
+            games: 0,
+            spiderManParty: 0,
+            ironManParty: 0,
+            clownParty: 0,
+
+          }
+        }
+      }, 
+    methods: {
+      
+      addToCart (type){
+        /* Get the amount of hours the user wants to rent a game */
+            this.cart[type] = this.inventory[type]
+            this.inventory.hours += this.inventory[type]
+            this.cart.hours = this.inventory.hours 
+            
+        },
+      animatorClickTraker(){
+          // Gets and calculates and displays animator count and price
+          this.inventory.animatorPrice += 20
+          this.cart.animatorPrice = this.inventory.animatorPrice
+          // Get the amount of animators
+          this.inventory.animator += 1
+          this.cart.animator = this.inventory.animator
+          
+
+        },
+      
+      gameClickTracer() {
+        // Change quantity when user clicks on a game
+        this.inventory.games += 1
+        
+        this.cart.games = this.inventory.games
+
+      },
+      toggleSideBar() {
+        // displays the sidebar when the user clicks on the cart icon
+        this.showSidebar = !this.showSidebar
+      },
+      
+    }
+  })
+  // custom element, sidebar (cart) element
+  app.component('sidebar', {
+    /* Create a cart table to be displayed */
+    props: ['toggle', 'cart'],
+    template: `
+    <div class="cart-body">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          
+          <th class="product">Product</th>
+          <th class="price">Price</th>
+          <th class="quantity">Qty</th>
+          <th class="hours">Hours</th>
+          <th><button @click="toggle"><i class="fa-solid fa-x"></i></button></th>
+          
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><i>Animator</i></td>
+          <td>{{cart.animatorPrice}}$</td>
+          <td>{{cart.animator}}</td>
+          <td>0</td>
+
+        </tr>
+        <tr>
+          <td><i>Games</i></td>
+          <td>{{cart.hours * 10}}$</td>
+          <td>{{cart.games}}</td>
+          <td>{{cart.hours}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+    <div class="total">
+      <span><strong>Total: {{cart.hours * 10 + cart.animatorPrice}}$</strong></span>
+      <button>Checkout</button>
+    </div>
+  </div>
+    `
+  })
+  app.mount('#app');
+  </script>
+
+
+
+    
+    
+</body>
+
+
+</html>

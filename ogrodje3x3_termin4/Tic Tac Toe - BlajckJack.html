@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Primer</title>
+    <link rel="stylesheet" href="ervin/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  </head>
+  <body>
+    <!-- Top corner ballons-->
+    <div class="ballon one"></div>
+    <div class="ballon two"></div>
+    <div class="ballon three"></div>
+    <div class="ballon four"></div>
+    <div class="ballon five"></div>
+    <div class="ballon six"></div>
+    <div class="topnav">
+      <a class="active" href="../index.html">Home</a>
+      <a class="interactive-games" href="Tic Tac Toe - BlajckJack.html">Games</a>
+      
+      <a @click="toggleSideBar" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
+      <a href="../about.html">About Us</a>
+  </div>
+  <div class="greeting">
+    <p>You haven't yet desided what animators and games you would like to rent, feel free to let your kids play the games below, while you deside what is the right purchase for you and your family.</p>
+  </div>
+    <section>
+    <h3 id="message">ogrodje 3x3</h3>
+    <!-- vsebina -->
+    <div id="app">
+      <section>
+        <table>
+          <tr>
+            <td>
+              <input type="button" id="x0y0" class="free" onclick="onClicked(0,0)">
+            </td>
+            <td>
+              <input type="button" id="x1y0" onclick="onClicked(1,0)">
+            </td>
+            <td>
+            <input type="button" id="x2y0" onclick="onClicked(2,0)">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="button" id="x0y1" class="free" onclick="onClicked(0,1)">
+            </td>
+            <td>
+              <input type="button" id="x1y1" onclick="onClicked(1,1)">
+            </td>
+            <td>
+              <input type="button" id="x2y1" onclick="onClicked(2,1)">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="button" id="x0y2" class="free" onclick="onClicked(0,2)">
+            </td>
+            <td>
+              <input type="button" id="x1y2" onclick="onClicked(1,2)"/>
+            </td>
+            <td>
+              <input type="button" id="x2y2" onclick="onClicked(2,2)"/>
+            </td>
+          </tr>
+        </table>
+      </section>
+        <section id="player1">
+        <!-- game buttons -->
+        <input type="button" id="reset" class="reset" name="button" onclick="onReset()" value="reset"/>
+          <input type="button" id="roll" class="reset" name="button" onclick="onRoll()" value="roll"/>
+          <input type="button" id="pass" class="reset" name="button" onclick="onPass()" value="Pass"/>
+        <!-- display -->
+        <div id="content"></div>
+    </section>
+    </div>
+  </section>
+    <script src="ervin/engine.js"></script>
+    <script src="mojakoda.js"></script>
+    <script src="S1.js"></script>
+  </body>
+</html>
