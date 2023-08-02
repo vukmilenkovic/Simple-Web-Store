@@ -1,3 +1,3 @@
 # Simple-Web-Store
-Created with HTML5, CSS, and Vanilla JavaScript
+Created with HTML5, CSS, JavaScript, and Vue.js 
 
